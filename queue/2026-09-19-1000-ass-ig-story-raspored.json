@@ -1,0 +1,17 @@
+{
+  "id": "2026-09-19-ass-ig-story-raspored",
+  "when": "2026-09-19T10:00:00+02:00",
+  "targets": [
+    "ig:ass"
+  ],
+  "type": "story",
+  "media": [
+    "media/raspored-1-ponedjeljak.jpg",
+    "media/raspored-2-utorak.jpg",
+    "media/raspored-3-srijeda.jpg",
+    "media/raspored-4-cetvrtak.jpg",
+    "media/raspored-5-petak.jpg",
+    "media/raspored-6-zbroj.jpg"
+  ],
+  "_napomena": "Nakon objave: profil -> New -> ime 'Raspored' -> odaberi ovih 6 -> cover"
+}

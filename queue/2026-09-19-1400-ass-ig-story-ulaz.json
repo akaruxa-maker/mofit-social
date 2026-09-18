@@ -1,0 +1,12 @@
+{
+  "id": "2026-09-19-ass-ig-story-ulaz",
+  "when": "2026-09-19T14:00:00+02:00",
+  "targets": [
+    "ig:ass"
+  ],
+  "type": "story",
+  "media": [
+    "media/ulaz-1.jpg",
+    "media/ulaz-2.jpg"
+  ]
+}

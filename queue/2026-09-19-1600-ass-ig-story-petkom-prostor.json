@@ -1,0 +1,13 @@
+{
+  "id": "2026-09-19-ass-ig-story-petkom-prostor",
+  "when": "2026-09-19T16:00:00+02:00",
+  "targets": [
+    "ig:ass"
+  ],
+  "type": "story",
+  "media": [
+    "media/petkom-1.jpg",
+    "media/prostor-1.jpg"
+  ],
+  "_napomena": "Dva odvojena Highlighta: 'Petkom u 18' i 'Prostor'"
+}

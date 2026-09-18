@@ -78,8 +78,32 @@ def ig_publish(ig_id, token, container_id):
     return r["id"]
 
 
+_IG_CACHE = {}
+
+
+def resolve_ig_id(acc, token):
+    """IG korisnicki ID. Ako nije upisan, dohvati ga iz povezane Facebook stranice."""
+    if acc.get("ig_user_id") and acc["ig_user_id"] != "POPUNITI":
+        return acc["ig_user_id"]
+    page = acc.get("page_id")
+    if not page:
+        raise RuntimeError("nema ni ig_user_id ni page_id")
+    if page in _IG_CACHE:
+        return _IG_CACHE[page]
+    r = call("GET", page, {"fields": "instagram_business_account", "access_token": token})
+    iba = r.get("instagram_business_account") or {}
+    if not iba.get("id"):
+        raise RuntimeError(
+            f"Facebook stranica {page} nema povezan Instagram poslovni racun. "
+            "Poveži ga u postavkama stranice (Linked accounts) pa pokreni ponovno."
+        )
+    _IG_CACHE[page] = iba["id"]
+    log("   IG id za stranicu", page, "->", iba["id"])
+    return iba["id"]
+
+
 def post_instagram(acc, item, token):
-    ig = acc["ig_user_id"]
+    ig = resolve_ig_id(acc, token)
     kind = item["type"]
     media = item.get("media", [])
     caption = item.get("caption", "")

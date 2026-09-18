@@ -79,6 +79,22 @@ def ig_publish(ig_id, token, container_id):
 
 
 _IG_CACHE = {}
+_PAGE_TOKEN_CACHE = {}
+
+
+def page_token(page_id, token):
+    """Meta trazi token stranice za objavu. META_TOKEN je korisnicki token,
+    pa iz njega dohvatimo token stranice. Ako je vec token stranice, vraca se isti."""
+    if page_id in _PAGE_TOKEN_CACHE:
+        return _PAGE_TOKEN_CACHE[page_id]
+    try:
+        r = call("GET", page_id, {"fields": "access_token", "access_token": token})
+        t = r.get("access_token") or token
+    except Exception as e:
+        log("   upozorenje: ne mogu dohvatiti token stranice", page_id, "-", e)
+        t = token
+    _PAGE_TOKEN_CACHE[page_id] = t
+    return t
 
 
 def resolve_ig_id(acc, token):
@@ -103,6 +119,8 @@ def resolve_ig_id(acc, token):
 
 
 def post_instagram(acc, item, token):
+    if acc.get("page_id"):
+        token = page_token(acc["page_id"], token)
     ig = resolve_ig_id(acc, token)
     kind = item["type"]
     media = item.get("media", [])
@@ -155,6 +173,7 @@ def post_instagram(acc, item, token):
 # ---------------------------------------------------------------- Facebook
 def post_facebook(acc, item, token):
     page = acc["page_id"]
+    token = page_token(page, token)
     kind = item["type"]
     media = item.get("media", [])
     caption = item.get("caption", "")
@@ -212,6 +231,28 @@ def main():
     now = dt.datetime.now(dt.timezone.utc)
     state_dir = ROOT / "state"
     state_dir.mkdir(exist_ok=True)
+
+    if DRY:
+        # provjera tokena i pristupa stranicama (samo citanje)
+        seen = set()
+        for target, acc in accounts.items():
+            env = acc.get("token_env", "META_TOKEN")
+            tok = os.environ.get(env, "")
+            if not tok:
+                log(f"!! {env} nije postavljen ({target})")
+                continue
+            pid = acc.get("page_id")
+            if not pid or pid in seen:
+                continue
+            seen.add(pid)
+            try:
+                t = page_token(pid, tok)
+                r = call("GET", pid, {"fields": "name,instagram_business_account{username}",
+                                      "access_token": t})
+                ig = (r.get("instagram_business_account") or {}).get("username", "—")
+                log(f"OK  stranica {pid}: {r.get('name')} | Instagram: @{ig}")
+            except Exception as e:
+                log(f"!! stranica {pid}: {e}")
 
     items = []
     for f in sorted((ROOT / "queue").glob("*.json")):

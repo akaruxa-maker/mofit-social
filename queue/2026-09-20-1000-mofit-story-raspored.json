@@ -1,0 +1,18 @@
+{
+  "id": "2026-09-20-mofit-story-raspored",
+  "when": "2026-09-20T10:00:00+02:00",
+  "targets": [
+    "ig:mofit"
+  ],
+  "type": "story",
+  "media": [
+    "media/mofit-raspored-1.jpg",
+    "media/mofit-raspored-2.jpg",
+    "media/mofit-raspored-3.jpg",
+    "media/mofit-raspored-4.jpg",
+    "media/mofit-raspored-5.jpg",
+    "media/mofit-raspored-6.jpg",
+    "media/mofit-raspored-7.jpg"
+  ],
+  "_napomena": "Zatim: profil -> New -> 'Raspored' -> odaberi ovih 7 -> cover-mofit-raspored"
+}

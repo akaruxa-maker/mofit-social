@@ -1,0 +1,12 @@
+{
+  "id": "2026-09-20-mofit-story-stijena",
+  "when": "2026-09-20T14:00:00+02:00",
+  "targets": [
+    "ig:mofit"
+  ],
+  "type": "story",
+  "media": [
+    "media/mofit-stijena-1.jpg",
+    "media/mofit-stijena-2.jpg"
+  ]
+}

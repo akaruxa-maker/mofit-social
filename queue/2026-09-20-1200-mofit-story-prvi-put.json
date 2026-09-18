@@ -1,0 +1,12 @@
+{
+  "id": "2026-09-20-mofit-story-prvi-put",
+  "when": "2026-09-20T12:00:00+02:00",
+  "targets": [
+    "ig:mofit"
+  ],
+  "type": "story",
+  "media": [
+    "media/mofit-prvi-put-1.jpg",
+    "media/mofit-prvi-put-2.jpg"
+  ]
+}

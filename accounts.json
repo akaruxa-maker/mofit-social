@@ -1,0 +1,22 @@
+{
+  "ig:ass": {
+    "ig_user_id": "POPUNITI",
+    "token_env": "META_TOKEN",
+    "_opis": "instagram.com/sports.studio.ilica"
+  },
+  "ig:mofit": {
+    "ig_user_id": "POPUNITI",
+    "token_env": "META_TOKEN",
+    "_opis": "MoFIT Instagram"
+  },
+  "fb:ass": {
+    "page_id": "450832718783950",
+    "token_env": "META_TOKEN",
+    "_opis": "adidas Sports Studio Zagreb"
+  },
+  "fb:mofit": {
+    "page_id": "138742466199966",
+    "token_env": "META_TOKEN",
+    "_opis": "MOFIT"
+  }
+}

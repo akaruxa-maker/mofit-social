@@ -1,0 +1,45 @@
+name: Objavi
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"     # svakih 15 minuta (UTC)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Samo ispiši što bi objavio"
+        type: boolean
+        default: false
+
+concurrency:
+  group: objavi
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Objavi
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          MEDIA_BASE_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}
+          GRAPH_VERSION: v25.0
+        run: |
+          python3 publish.py ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Zabilježi objavljeno
+        if: always()
+        run: |
+          git config user.name  "mofit-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state/
+          git diff --staged --quiet || git commit -m "objavljeno $(date -u +%F\ %H:%M)"
+          git push || true

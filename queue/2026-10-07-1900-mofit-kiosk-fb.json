@@ -1,0 +1,8 @@
+{
+  "id": "2026-10-07-mofit-kiosk-fb",
+  "when": "2026-10-07T19:00:00+02:00",
+  "targets": ["fb:mofit"],
+  "type": "post",
+  "media": ["https://akaruxa-maker.github.io/mofit-social/media/mofit-kiosk.mp4"],
+  "caption": "Članarinu više ne morate plaćati na recepciji.\n\nU ulazu je POS kiosk. Dotaknete ekran, odaberete paket, skenirate svoj gym pass i platite QR kodom sa svog mobitela. Rampa se otvara. Cijeli postupak traje manje od minute.\n\nNajveća razlika se vidi u špici, između 16:30 i 20:00, kad je na recepciji najviše ljudi. Tada ne morate čekati nikoga.\n\nKiosk radi kad i klub, sedam dana u tjednu. Plaćanje ide karticom preko mobitela, ne ostavljate podatke na ekranu.\n\nAko vam je draže na recepciji, naravno da i dalje možete.\n\nMoFIT, Zorkovačka 6, Trešnjevka"
+}

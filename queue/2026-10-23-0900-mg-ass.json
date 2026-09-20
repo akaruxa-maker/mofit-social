@@ -1,0 +1,11 @@
+{
+  "id": "2026-10-23-mg-ass",
+  "when": "2026-10-23T09:00:00+02:00",
+  "targets": [
+    "ig:ass"
+  ],
+  "type": "story",
+  "media": [
+    "media/meetgreet-ass.jpg"
+  ]
+}

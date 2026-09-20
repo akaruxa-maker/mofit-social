@@ -1,11 +1,11 @@
 {
-  "id": "2026-10-16-mg-mofit",
+  "id": "2026-10-16-mg-ass",
   "when": "2026-10-16T09:00:00+02:00",
   "targets": [
-    "ig:mofit"
+    "ig:ass"
   ],
   "type": "story",
   "media": [
-    "media/meetgreet-mofit.jpg"
+    "media/meetgreet-ass.jpg"
   ]
 }

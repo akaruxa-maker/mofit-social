@@ -1,0 +1,12 @@
+{
+  "id": "2026-10-10-mofit-lm-story-danas",
+  "when": "2026-10-10T07:30:00+02:00",
+  "targets": [
+    "ig:mofit"
+  ],
+  "type": "story",
+  "media": [
+    "media/mofit-lm-story-danas.jpg"
+  ],
+  "caption": "Danas 09:00–11:00, Dvorana 100."
+}
